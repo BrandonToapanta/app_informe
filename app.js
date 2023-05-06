@@ -36,16 +36,21 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login.ejs')
 })
+app.get('/register', (req, res) => {
+    res.render('register.ejs')
+})
 
 // Registro
-app.post('/resiter', async (req, res) => {
+app.post('/register', async (req, res) => {
     // Capturamos la informacion ingresada en el formulario
     // nota: poner todos los campos sin esepcion(Hay un metodo donde se puede hacer mas rapido)
-    const user = req.body.user;
+    const rol = req.body.rol;
     const name = req.body.name;
-    const pass = req.body.passwor;
+    const user = req.body.user;
+    const pass = req.body.password;
+    const tutor = req.body.tutor;
     let passwordHash = await bcryptjs.hash(pass, 8)
-    connection.query('INSERT INTO user SET ?', { user: user, name: name, pass: passwordHash }, async (error, results) => {
+    connection.query('INSERT INTO user SET ?', { rol_user: rol, name_user: name, user_user: user, password_user: passwordHash, tutor_user: tutor }, async (error, results) => {
         if (error) {
             console.log(error)
         }
