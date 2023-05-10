@@ -61,7 +61,7 @@ app.post('/register', async (req, res) => {
                 alertMassage: "El registro a sigo exitoso",
                 alertIcono: 'success',
                 showConfirmButton: false,
-                time: 2500,
+                timer: 2500,
                 ruta: ''
             })
             // res.send('Fuel exitosa la creacion de usuario')

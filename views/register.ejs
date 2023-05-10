@@ -44,7 +44,21 @@
             <button class="button_login" type="submit"><span>Registrarse</span></button>
         </form>
     </div>
-    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(typeof alert !="undefined" ){%>
+        <script>
+            Swal.fire({
+                title: '<%= alertTile %>',
+                text: '<%= alertMassage %>',
+                icon: '<%= alertIcono %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(
+                    () => {
+                        window.location = '/<%= ruta %>'
+                    })
+        </script>
+        <% } %>
 </body>
 
 </html>
